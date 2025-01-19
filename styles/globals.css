@@ -1,34 +1,13 @@
 :root {
-  --primary-yellow: #FFD700;
-  --secondary-purple: #663399;
-  --light-yellow: #FFF8DC;
-  --light-purple: #E6E6FA;
-  --text-dark: #2C1810;
-  --background: #FFFAF0;
+  --primary-yellow: #FFD700;  /* 明亮的金黄色 */
+  --secondary-purple: #663399; /* 深紫色 */
+  --light-purple: #E6E6FA;    /* 淡紫色 */
+  --accent-yellow: #FFF4BD;   /* 柔和的黄色 */
+  --text-dark: #2C1810;       /* 深褐色文字 */
 }
 
 body {
-  background-color: var(--background);
+  background: linear-gradient(135deg, var(--accent-yellow) 0%, var(--light-purple) 100%);
   color: var(--text-dark);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-/* 印象派风格的笔触效果 */
-.impressionist-border {
-  border: 2px solid var(--primary-yellow);
-  box-shadow: 4px 4px 0 var(--secondary-purple);
-  transition: all 0.3s ease;
-}
-
-.impressionist-border:hover {
-  box-shadow: 6px 6px 0 var(--secondary-purple);
-  transform: translate(-2px, -2px);
+  font-family: 'Arial', sans-serif;
 } 
