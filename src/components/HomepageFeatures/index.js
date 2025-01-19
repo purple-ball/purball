@@ -1,8 +1,20 @@
+import React from 'react';
 import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 
 const FeatureList = [
+  {
+    title: '个人简介',
+    image: require('@site/static/img/your-photo.jpg').default, // 请确保添加您的照片到这个路径
+    description: (
+      <>
+        您好！我是 [您的名字]，一位充满激情的 [您的职业/身份]。
+        我专注于 [您的专业领域]，致力于 [您的目标/愿景]。
+        通过这个网站，我希望能与您分享我的 [专业知识/经验/想法] 。
+      </>
+    ),
+  },
   {
     title: 'Easy to Use',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
@@ -35,15 +47,15 @@ const FeatureList = [
   },
 ];
 
-function Feature({Svg, title, description}) {
+function Feature({title, image, description}) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
+    <div className={clsx('col col--12')}>
       <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
+        <div className={styles.featureProfile}>
+          <img className={styles.featureImage} src={image} alt={title} />
+          <h3>{title}</h3>
+          <p>{description}</p>
+        </div>
       </div>
     </div>
   );

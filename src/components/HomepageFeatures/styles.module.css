@@ -9,3 +9,20 @@
   height: 200px;
   width: 200px;
 }
+
+.featureProfile {
+  padding: 2rem;
+  background: linear-gradient(45deg, var(--custom-yellow), var(--custom-light-yellow));
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 2rem 0;
+}
+
+.featureImage {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--ifm-color-primary);
+  margin-bottom: 1rem;
+}
