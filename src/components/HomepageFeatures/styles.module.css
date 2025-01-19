@@ -7,22 +7,17 @@
 }
 
 .featureCard {
-  text-align: center;
+  height: 100%;
   padding: 2rem;
+  text-align: center;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
 }
 
-.featureCard h3 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-  color: var(--ifm-color-primary);
-}
-
-.featureCard p {
-  font-size: 1.2rem;
-  color: var(--ifm-color-primary-dark);
-  margin: 0;
+.featureCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .featureLink {
