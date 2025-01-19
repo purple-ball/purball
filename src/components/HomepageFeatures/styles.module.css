@@ -13,7 +13,6 @@
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.8);
   transition: all 0.3s ease;
-  margin: 0 1rem;
 }
 
 .featureCard:hover {
@@ -51,17 +50,4 @@
   object-fit: cover;
   border: 4px solid var(--ifm-color-primary);
   margin-bottom: 1rem;
-}
-
-/* 添加新的样式来处理5个按钮的布局 */
-.featureCol {
-  margin-bottom: 2rem;
-  flex: 0 0 33.33%; /* 每行显示3个 */
-  max-width: 33.33%;
-}
-
-/* 最后一行居中显示 */
-.featureCol:nth-last-child(-n+2) {
-  margin-left: auto;
-  margin-right: auto;
 }

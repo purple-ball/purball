@@ -5,47 +5,28 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'AboutMe!',
+    title: '文档教程',
     url: '/docs/intro',
     description: (
       <>
-        了解更多关于我
+        查看详细教程文档
       </>
     ),
   },
   {
-    title: '爱好',
+    title: '博客',
     url: '/blog',
     description: (
       <>
-        分享我的兴趣爱好
+        阅读最新博客文章
       </>
     ),
   },
   {
-    title: '读书笔记',
-    url: '/reading',
+    title: '关于',
     description: (
       <>
-        记录阅读心得
-      </>
-    ),
-  },
-  {
-    title: '影视笔记',
-    url: '/movies',
-    description: (
-      <>
-        分享观影感受
-      </>
-    ),
-  },
-  {
-    title: '小狗草坪',
-    url: '/dogs',
-    description: (
-      <>
-        我的宠物生活
+        一个分享技术与思考的空间
       </>
     ),
   },
@@ -53,7 +34,7 @@ const FeatureList = [
 
 function Feature({title, url, description}) {
   return (
-    <div className={clsx('col col--4', styles.featureCol)}>
+    <div className={clsx('col col--4')}>
       <div className={styles.featureCard}>
         {url ? (
           <Link to={url} className={styles.featureLink}>
