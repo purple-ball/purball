@@ -1,48 +1,23 @@
 import React from 'react';
 import clsx from 'clsx';
-import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: '文档教程',
-    url: '/docs/intro',
+    title: '紫薯球之家',
     description: (
       <>
-        查看详细教程文档
-      </>
-    ),
-  },
-  {
-    title: '博客',
-    url: '/blog',
-    description: (
-      <>
-        阅读最新博客文章
-      </>
-    ),
-  },
-  {
-    title: '关于',
-    description: (
-      <>
-        一个分享技术与思考的空间
+        欢迎来访
       </>
     ),
   },
 ];
 
-function Feature({title, url, description}) {
+function Feature({title, description}) {
   return (
-    <div className={clsx('col col--4')}>
+    <div className={clsx('col col--12')}>
       <div className={styles.featureCard}>
-        {url ? (
-          <Link to={url} className={styles.featureLink}>
-            <h3>{title}</h3>
-          </Link>
-        ) : (
-          <h3>{title}</h3>
-        )}
+        <h3>{title}</h3>
         <p>{description}</p>
       </div>
     </div>
