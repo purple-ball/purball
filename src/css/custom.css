@@ -6,19 +6,19 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #8A2BE2; /* 紫色作为主色调 */
-  --ifm-color-primary-dark: #7B27CC;
-  --ifm-color-primary-darker: #6A22B5;
-  --ifm-color-primary-darkest: #591D9E;
-  --ifm-color-primary-light: #9945E5;
-  --ifm-color-primary-lighter: #A85EE8;
-  --ifm-color-primary-lightest: #B777EB;
+  --ifm-color-primary: #9370DB; /* 更柔和的紫色 */
+  --ifm-color-primary-dark: #8458d6;
+  --ifm-color-primary-darker: #7a47d1;
+  --ifm-color-primary-darkest: #6c35c9;
+  --ifm-color-primary-light: #a288e0;
+  --ifm-color-primary-lighter: #b19ee5;
+  --ifm-color-primary-lightest: #c0b3ea;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   
-  /* 添加辅助色彩 */
-  --custom-yellow: #FFD700;
-  --custom-light-yellow: #FFE44D;
+  /* 更新辅助色彩为更柔和的色调 */
+  --custom-yellow: #FFF8DC; /* 玉米丝色 */
+  --custom-light-yellow: #FFFAF0; /* 花白色 */
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */

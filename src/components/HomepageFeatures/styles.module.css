@@ -1,8 +1,33 @@
 .features {
   display: flex;
   align-items: center;
-  padding: 2rem 0;
+  padding: 4rem 0;
   width: 100%;
+  background: linear-gradient(45deg, var(--custom-yellow), var(--custom-light-yellow));
+}
+
+.featureCard {
+  height: 100%;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.featureLink {
+  text-decoration: none;
+  color: var(--ifm-color-primary);
+}
+
+.featureLink:hover {
+  text-decoration: none;
+  color: var(--ifm-color-primary-dark);
 }
 
 .featureSvg {

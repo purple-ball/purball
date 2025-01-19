@@ -1,61 +1,49 @@
 import React from 'react';
 import clsx from 'clsx';
-import Heading from '@theme/Heading';
+import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: '个人简介',
-    image: require('@site/static/img/your-photo.jpg').default, // 请确保添加您的照片到这个路径
+    title: '文档教程',
+    url: '/docs/intro',
     description: (
       <>
-        您好！我是 [您的名字]，一位充满激情的 [您的职业/身份]。
-        我专注于 [您的专业领域]，致力于 [您的目标/愿景]。
-        通过这个网站，我希望能与您分享我的 [专业知识/经验/想法] 。
+        查看详细教程文档
       </>
     ),
   },
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: '博客',
+    url: '/blog',
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        阅读最新博客文章
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: '关于',
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
-      </>
-    ),
-  },
-  {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
-    description: (
-      <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        一个分享技术与思考的空间
       </>
     ),
   },
 ];
 
-function Feature({title, image, description}) {
+function Feature({title, url, description}) {
   return (
-    <div className={clsx('col col--12')}>
-      <div className="text--center padding-horiz--md">
-        <div className={styles.featureProfile}>
-          <img className={styles.featureImage} src={image} alt={title} />
+    <div className={clsx('col col--4')}>
+      <div className={styles.featureCard}>
+        {url ? (
+          <Link to={url} className={styles.featureLink}>
+            <h3>{title}</h3>
+          </Link>
+        ) : (
           <h3>{title}</h3>
-          <p>{description}</p>
-        </div>
+        )}
+        <p>{description}</p>
       </div>
     </div>
   );
