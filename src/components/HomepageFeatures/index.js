@@ -5,28 +5,47 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: '文档教程',
+    title: 'AboutMe!',
     url: '/docs/intro',
     description: (
       <>
-        查看详细教程文档
+        了解更多关于我
       </>
     ),
   },
   {
-    title: '博客',
+    title: '爱好',
     url: '/blog',
     description: (
       <>
-        阅读最新博客文章
+        分享我的兴趣爱好
       </>
     ),
   },
   {
-    title: '关于',
+    title: '读书笔记',
+    url: '/reading',
     description: (
       <>
-        一个分享技术与思考的空间
+        记录阅读心得
+      </>
+    ),
+  },
+  {
+    title: '影视笔记',
+    url: '/movies',
+    description: (
+      <>
+        分享观影感受
+      </>
+    ),
+  },
+  {
+    title: '小狗草坪',
+    url: '/dogs',
+    description: (
+      <>
+        我的宠物日记
       </>
     ),
   },
