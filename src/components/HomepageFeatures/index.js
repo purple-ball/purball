@@ -45,7 +45,7 @@ const FeatureList = [
     url: '/docs/dogs',
     description: (
       <>
-        我的宠物日记
+        我的好朋友们都在这里留言呢
       </>
     ),
   },
