@@ -66,3 +66,62 @@
   background: linear-gradient(135deg, var(--custom-background), #FFF);
   padding: 4rem 0;
 }
+
+/* AboutMe 页面样式美化 */
+.about-me-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.about-me-page h1 {
+  font-size: 2.5rem;
+  background: linear-gradient(120deg, var(--ifm-color-primary), #b19ee5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 2rem;
+}
+
+.about-me-page h2 {
+  font-size: 1.8rem;
+  color: var(--ifm-color-primary-darker);
+  margin-top: 2.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--ifm-color-primary-lightest);
+}
+
+.about-me-page p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--ifm-font-color-base);
+}
+
+.about-me-page ul {
+  padding-left: 1.5rem;
+}
+
+.about-me-page li {
+  font-size: 1.1rem;
+  line-height: 2;
+  margin: 0.5rem 0;
+}
+
+.about-me-page blockquote {
+  background: linear-gradient(to right, var(--custom-yellow), var(--custom-light-yellow));
+  border-left: 4px solid var(--ifm-color-primary);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.about-me-page blockquote p {
+  margin: 0;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--ifm-font-color-base);
+}
+
+.about-me-page img {
+  vertical-align: middle;
+  margin: 0 0.5rem;
+}

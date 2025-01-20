@@ -2,6 +2,10 @@
 sidebar_position: 1
 ---
 
+import styles from '@site/src/css/custom.css';
+
+<div className="about-me-page">
+
 # About Me! 👋
 
 ## 你好，世界！ 
@@ -21,5 +25,7 @@ e\infp 射手座![alt text](08B4CCB1.png) 福州大学计科大三在读
 - 💌 Email: [your.email@example.com]
 - 💻 GitHub: [your-github-username]
 
-##✨
-> 我愿是雨而不是灰烬 
+## ✨
+> 我愿是雨而不是灰烬
+
+</div> 
