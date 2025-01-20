@@ -8,7 +8,7 @@ sidebar_position: 1
 欢迎来到我的个人空间！这里是我记录生活、分享想法的地方。
 
 ## 关于我 🌟
-我是一个热爱生活、充满好奇心的人。喜欢探索新事物，记录美好时刻。
+e\infp 射手座![alt text](08B4CCB1.png) 福州大学计科大三在读
 
 ## 我的日常 🎯
 - 📚 阅读：探索不同的世界
@@ -21,5 +21,5 @@ sidebar_position: 1
 - 💌 Email: [your.email@example.com]
 - 💻 GitHub: [your-github-username]
 
-## 座右铭 ✨
-> 生活不仅是眼前的苟且，还有诗和远方。 
+##✨
+> 我愿是雨而不是灰烬 
