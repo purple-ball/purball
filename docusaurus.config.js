@@ -48,6 +48,12 @@ const config = {
           editUrl:
             'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
+        // 添加新的页面路由
+        pages: {
+          path: 'src/pages',
+          routeBasePath: '/',
+          include: ['**/*.{js,jsx,ts,tsx,md,mdx}'],
+        },
         blog: {
           showReadingTime: true,
           feedOptions: {
