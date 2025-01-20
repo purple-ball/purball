@@ -6,7 +6,7 @@ import styles from './styles.module.css';
 const FeatureList = [
   {
     title: 'AboutMe!',
-    url: '/docs/intro',
+    url: '/docs/aboutme',
     description: (
       <>
         了解更多关于我
@@ -15,7 +15,7 @@ const FeatureList = [
   },
   {
     title: '爱好',
-    url: '/blog',
+    url: '/hobby',
     description: (
       <>
         分享我的兴趣爱好
