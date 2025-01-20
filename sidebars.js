@@ -22,6 +22,31 @@ const sidebars = {
       id: 'aboutme',
       label: 'About Me',
     },
+    {
+      type: 'category',
+      label: '爱好',
+      items: [
+        'hobby/surfing',
+        'hobby/guitar',
+        'hobby/milk-tea',
+        'hobby/food',
+      ],
+    },
+    {
+      type: 'doc',
+      id: 'reading',
+      label: '读书笔记',
+    },
+    {
+      type: 'doc',
+      id: 'movies',
+      label: '影视笔记',
+    },
+    {
+      type: 'doc',
+      id: 'dogs',
+      label: '小狗草坪',
+    },
   ],
 
   // But you can create a sidebar manually

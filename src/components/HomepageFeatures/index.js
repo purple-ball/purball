@@ -15,7 +15,7 @@ const FeatureList = [
   },
   {
     title: '爱好',
-    url: '/hobby',
+    url: '/docs/hobby/surfing',
     description: (
       <>
         分享我的兴趣爱好
@@ -24,7 +24,7 @@ const FeatureList = [
   },
   {
     title: '读书笔记',
-    url: '/reading',
+    url: '/docs/reading',
     description: (
       <>
         记录阅读心得
@@ -33,7 +33,7 @@ const FeatureList = [
   },
   {
     title: '影视笔记',
-    url: '/movies',
+    url: '/docs/movies',
     description: (
       <>
         分享观影感受
@@ -42,7 +42,7 @@ const FeatureList = [
   },
   {
     title: '小狗草坪',
-    url: '/dogs',
+    url: '/docs/dogs',
     description: (
       <>
         我的宠物日记
