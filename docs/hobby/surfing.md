@@ -13,10 +13,5 @@ import BrowserOnly from '@docusaurus/BrowserOnly';
 }}
 </BrowserOnly>
 
-### 推荐的博客
-- 科技前沿
-- 生活方式
-- 艺术创作
-
 ## 最近发现
 分享一些最近发现的有趣内容... 
