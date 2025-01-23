@@ -4,7 +4,7 @@ sidebar_position: 1
 
 import React, { useState } from 'react';
 import styles from '@site/src/css/custom.css';
-import { Link } from 'react-router-dom';
+import Link from '@docusaurus/Link';
 
 export const ResumeModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
@@ -84,6 +84,12 @@ export const ResumeModal = ({ isOpen, onClose }) => {
 
 export const AboutMePage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isNewWorkModalOpen, setIsNewWorkModalOpen] = useState(false);
+  
+  const handleAddNewWork = (title) => {
+    // 处理新作品集的创建逻辑
+    console.log('Creating new work:', title);
+  };
   
   return (
     <div className="about-me-page">
@@ -133,9 +139,7 @@ export const AboutMePage = () => {
         </Link>
         <button 
           className="work-button add-button"
-          onClick={() => {
-            // 创建新作品集的逻辑
-          }}
+          onClick={() => setIsNewWorkModalOpen(true)}
         >
           +
         </button>
@@ -164,6 +168,11 @@ export const AboutMePage = () => {
       <ResumeModal 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
+      />
+      <NewWorkModal
+        isOpen={isNewWorkModalOpen}
+        onClose={() => setIsNewWorkModalOpen(false)}
+        onAdd={handleAddNewWork}
       />
     </div>
   );
