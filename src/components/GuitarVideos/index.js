@@ -222,7 +222,11 @@ export default function GuitarVideos() {
           </div>
           <div className={styles.statItem}>
             <span className={styles.statNumber}>
-              {videos.filter(v => v.recordDate.startsWith('2024')).length}
+              {videos.filter(v => {
+                const recordYear = new Date(v.recordDate).getFullYear();
+                const currentYear = new Date().getFullYear();
+                return recordYear === currentYear;
+              }).length}
             </span>
             <span className={styles.statLabel}>今年新增</span>
           </div>
