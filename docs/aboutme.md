@@ -4,8 +4,6 @@ sidebar_position: 1
 
 import React, { useState } from 'react';
 import styles from '@site/src/css/custom.css';
-import Link from '@docusaurus/Link';
-import NewWorkModal from '@site/src/components/NewWorkModal';
 
 export const ResumeModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
@@ -85,12 +83,6 @@ export const ResumeModal = ({ isOpen, onClose }) => {
 
 export const AboutMePage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isNewWorkModalOpen, setIsNewWorkModalOpen] = useState(false);
-  
-  const handleAddNewWork = (title) => {
-    // 处理新作品集的创建逻辑
-    console.log('Creating new work:', title);
-  };
   
   return (
     <div className="about-me-page">
@@ -124,28 +116,6 @@ export const AboutMePage = () => {
         </a>
       </div>
 
-      <h2>我的作品集 🎨</h2>
-      <div className="works-buttons">
-        <Link
-          to="../works/ai-writing"
-          className="work-button"
-        >
-          AI生文
-        </Link>
-        <Link
-          to="../works/ai-drawing"
-          className="work-button"
-        >
-          AI生图
-        </Link>
-        <button 
-          className="work-button add-button"
-          onClick={() => setIsNewWorkModalOpen(true)}
-        >
-          +
-        </button>
-      </div>
-
       <h2>我的日常 🎯</h2>
       <ul>
         <li>📚 阅读：探索不同的世界</li>
@@ -169,11 +139,6 @@ export const AboutMePage = () => {
       <ResumeModal 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
-      />
-      <NewWorkModal
-        isOpen={isNewWorkModalOpen}
-        onClose={() => setIsNewWorkModalOpen(false)}
-        onAdd={handleAddNewWork}
       />
     </div>
   );

@@ -38,11 +38,11 @@ const config = {
 
   presets: [
     [
-      '@docusaurus/preset-classic',
-      {
+      'classic',
+      /** @type {import('@docusaurus/preset-classic').Options} */
+      ({
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
-          routeBasePath: 'docs',
+          sidebarPath: './sidebars.js',
         },
         // 添加新的页面路由
         pages: {
@@ -68,7 +68,7 @@ const config = {
         theme: {
           customCss: './src/css/custom.css',
         },
-      },
+      }),
     ],
   ],
 
