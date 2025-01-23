@@ -126,7 +126,7 @@ export const WebsiteManager = () => {
 
 # 网上冲浪 🏄‍♂️
 
-## 我的收藏夹 ��
+## 我的收藏夹 🔖
 ### 有趣的网站
 <WebsiteManager />
 
