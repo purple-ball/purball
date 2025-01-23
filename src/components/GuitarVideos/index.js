@@ -4,22 +4,29 @@ import styles from './styles.module.css';
 const DEFAULT_VIDEOS = [
   {
     id: 1,
-    title: '《晴天》吉他弹唱',
-    url: 'https://www.example.com/video1',
-    date: '2024-03-20',
-    description: '周杰伦《晴天》吉他弹唱练习',
-    coverImage: '/img/guitar/cover1.jpg'  // 可以添加视频封面图片
-  }
+    title: '《晴天》翻唱',
+    description: '周杰伦《晴天》吉他弹唱版本',
+    videoUrl: 'your-video-url-1',
+    coverImage: '/img/guitar/cover1.jpg',
+    recordDate: '2024-03-15',
+    difficulty: '中等',
+    tags: ['流行', '周杰伦']
+  },
+  // ... 其他默认视频
 ];
 
 export default function GuitarVideos() {
   const [videos, setVideos] = useState([]);
   const [showAddForm, setShowAddForm] = useState(false);
+  const [showVideoModal, setShowVideoModal] = useState(false);
+  const [selectedVideo, setSelectedVideo] = useState(null);
   const [newVideo, setNewVideo] = useState({
     title: '',
-    url: '',
     description: '',
-    coverImage: ''
+    videoUrl: '',
+    coverImage: '',
+    difficulty: '入门',
+    tags: []
   });
 
   useEffect(() => {
@@ -35,27 +42,48 @@ export default function GuitarVideos() {
 
   const handleAdd = (e) => {
     e.preventDefault();
-    if (newVideo.title && newVideo.url) {
+    if (newVideo.title && newVideo.videoUrl) {
       setVideos([
         {
           ...newVideo,
           id: Date.now(),
-          date: new Date().toISOString().split('T')[0]
+          recordDate: new Date().toISOString().split('T')[0]
         },
         ...videos
       ]);
-      setNewVideo({ title: '', url: '', description: '', coverImage: '' });
+      setNewVideo({
+        title: '',
+        description: '',
+        videoUrl: '',
+        coverImage: '',
+        difficulty: '入门',
+        tags: []
+      });
       setShowAddForm(false);
     }
   };
 
   const handleDelete = (id) => {
-    setVideos(videos.filter(video => video.id !== id));
+    setVideos(videos.filter(v => v.id !== id));
+    setSelectedVideo(null);
+    setShowVideoModal(false);
   };
 
   return (
-    <div className={styles.videosContainer}>
-      <div className={styles.videosHeader}>
+    <div className={styles.guitarContainer}>
+      <div className={styles.header}>
+        <div className={styles.stats}>
+          <div className={styles.statItem}>
+            <span className={styles.statNumber}>{videos.length}</span>
+            <span className={styles.statLabel}>视频数</span>
+          </div>
+          <div className={styles.statItem}>
+            <span className={styles.statNumber}>
+              {videos.filter(v => v.recordDate.startsWith('2024')).length}
+            </span>
+            <span className={styles.statLabel}>今年新增</span>
+          </div>
+        </div>
         <button
           className={styles.addButton}
           onClick={() => setShowAddForm(true)}
@@ -73,47 +101,74 @@ export default function GuitarVideos() {
         </button>
       </div>
 
-      <div className={styles.videosGrid}>
+      <div className={styles.videoGrid}>
         {videos.map(video => (
-          <div key={video.id} className={styles.videoCard}>
-            <div className={styles.videoThumbnail}>
-              {video.coverImage ? (
-                <img src={video.coverImage} alt={video.title} />
-              ) : (
-                <div className={styles.placeholderThumbnail}>
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
-                  </svg>
-                </div>
-              )}
+          <div
+            key={video.id}
+            className={styles.videoCard}
+            onClick={() => {
+              setSelectedVideo(video);
+              setShowVideoModal(true);
+            }}
+          >
+            <div className={styles.videoCover}>
+              <img src={video.coverImage} alt={video.title} />
+              <div className={styles.playButton}>▶</div>
             </div>
             <div className={styles.videoInfo}>
               <h3>{video.title}</h3>
-              <time>{video.date}</time>
-              <p>{video.description}</p>
-              <div className={styles.videoActions}>
-                <a 
-                  href={video.url} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className={styles.watchButton}
-                >
-                  观看视频
-                </a>
-                <button
-                  className={styles.deleteButton}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleDelete(video.id);
-                  }}
-                >
-                  ★
-                </button>
+              <div className={styles.videoMeta}>
+                <span className={styles.difficulty}>{video.difficulty}</span>
+                <time>{video.recordDate}</time>
+              </div>
+              <div className={styles.tags}>
+                {video.tags.map(tag => (
+                  <span key={tag} className={styles.tag}>{tag}</span>
+                ))}
               </div>
             </div>
+            <button
+              className={styles.deleteButton}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleDelete(video.id);
+              }}
+            >
+              ★
+            </button>
           </div>
         ))}
       </div>
+
+      {showVideoModal && selectedVideo && (
+        <div className="modal-overlay" onClick={() => {
+          setShowVideoModal(false);
+          setSelectedVideo(null);
+        }}>
+          <div className="modal-content" onClick={e => e.stopPropagation()}>
+            <div className={styles.videoPlayer}>
+              <video
+                controls
+                src={selectedVideo.videoUrl}
+                poster={selectedVideo.coverImage}
+              />
+            </div>
+            <div className={styles.videoDetails}>
+              <h2>{selectedVideo.title}</h2>
+              <p>{selectedVideo.description}</p>
+              <div className={styles.videoMeta}>
+                <span className={styles.difficulty}>{selectedVideo.difficulty}</span>
+                <time>录制于：{selectedVideo.recordDate}</time>
+              </div>
+              <div className={styles.tags}>
+                {selectedVideo.tags.map(tag => (
+                  <span key={tag} className={styles.tag}>{tag}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {showAddForm && (
         <div className="modal-overlay" onClick={() => setShowAddForm(false)}>
@@ -131,31 +186,55 @@ export default function GuitarVideos() {
                 />
               </div>
               <div className="form-group">
-                <label>视频链接：</label>
-                <input
-                  type="url"
-                  value={newVideo.url}
-                  onChange={e => setNewVideo({...newVideo, url: e.target.value})}
-                  placeholder="https://example.com/video"
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label>封面图片链接：</label>
-                <input
-                  type="url"
-                  value={newVideo.coverImage}
-                  onChange={e => setNewVideo({...newVideo, coverImage: e.target.value})}
-                  placeholder="https://example.com/cover.jpg"
-                />
-              </div>
-              <div className="form-group">
                 <label>描述：</label>
                 <textarea
                   value={newVideo.description}
                   onChange={e => setNewVideo({...newVideo, description: e.target.value})}
                   placeholder="视频描述"
-                  rows={3}
+                  rows={4}
+                />
+              </div>
+              <div className="form-group">
+                <label>视频链接：</label>
+                <input
+                  type="url"
+                  value={newVideo.videoUrl}
+                  onChange={e => setNewVideo({...newVideo, videoUrl: e.target.value})}
+                  placeholder="视频URL"
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label>封面图片：</label>
+                <input
+                  type="url"
+                  value={newVideo.coverImage}
+                  onChange={e => setNewVideo({...newVideo, coverImage: e.target.value})}
+                  placeholder="封面图片URL"
+                />
+              </div>
+              <div className="form-group">
+                <label>难度：</label>
+                <select
+                  value={newVideo.difficulty}
+                  onChange={e => setNewVideo({...newVideo, difficulty: e.target.value})}
+                >
+                  <option value="入门">入门</option>
+                  <option value="简单">简单</option>
+                  <option value="中等">中等</option>
+                  <option value="困难">困难</option>
+                </select>
+              </div>
+              <div className="form-group">
+                <label>标签：</label>
+                <input
+                  type="text"
+                  value={newVideo.tags.join(', ')}
+                  onChange={e => setNewVideo({
+                    ...newVideo,
+                    tags: e.target.value.split(',').map(tag => tag.trim())
+                  })}
+                  placeholder="用逗号分隔多个标签"
                 />
               </div>
               <div className="form-buttons">
