@@ -23,7 +23,7 @@ export default function GuitarVideos() {
   const [newVideo, setNewVideo] = useState({
     title: '',
     description: '',
-    videoUrl: '',
+    videoFile: null,
     coverImage: '',
     difficulty: '入门',
     tags: []
@@ -31,7 +31,14 @@ export default function GuitarVideos() {
 
   useEffect(() => {
     const saved = localStorage.getItem('guitar-videos');
-    setVideos(saved ? JSON.parse(saved) : DEFAULT_VIDEOS);
+    const savedVideos = saved ? JSON.parse(saved) : DEFAULT_VIDEOS;
+    // 转换已保存的视频URL为Blob URL
+    savedVideos.forEach(video => {
+      if (video.videoBlob) {
+        video.videoUrl = URL.createObjectURL(new Blob([video.videoBlob]));
+      }
+    });
+    setVideos(savedVideos);
   }, []);
 
   useEffect(() => {
@@ -42,24 +49,32 @@ export default function GuitarVideos() {
 
   const handleAdd = (e) => {
     e.preventDefault();
-    if (newVideo.title && newVideo.videoUrl) {
-      setVideos([
-        {
-          ...newVideo,
-          id: Date.now(),
-          recordDate: new Date().toISOString().split('T')[0]
-        },
-        ...videos
-      ]);
-      setNewVideo({
-        title: '',
-        description: '',
-        videoUrl: '',
-        coverImage: '',
-        difficulty: '入门',
-        tags: []
-      });
-      setShowAddForm(false);
+    if (newVideo.title && newVideo.videoFile) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const videoBlob = new Blob([reader.result], { type: newVideo.videoFile.type });
+        const videoUrl = URL.createObjectURL(videoBlob);
+        setVideos([
+          {
+            ...newVideo,
+            id: Date.now(),
+            videoUrl,
+            videoBlob: reader.result,
+            recordDate: new Date().toISOString().split('T')[0]
+          },
+          ...videos
+        ]);
+        setNewVideo({
+          title: '',
+          description: '',
+          videoFile: null,
+          coverImage: '',
+          difficulty: '入门',
+          tags: []
+        });
+        setShowAddForm(false);
+      };
+      reader.readAsArrayBuffer(newVideo.videoFile);
     }
   };
 
@@ -195,14 +210,18 @@ export default function GuitarVideos() {
                 />
               </div>
               <div className="form-group">
-                <label>视频链接：</label>
+                <label>上传视频：</label>
                 <input
-                  type="url"
-                  value={newVideo.videoUrl}
-                  onChange={e => setNewVideo({...newVideo, videoUrl: e.target.value})}
-                  placeholder="视频URL"
+                  type="file"
+                  accept="video/*"
+                  onChange={e => setNewVideo({...newVideo, videoFile: e.target.files[0]})}
                   required
                 />
+                {newVideo.videoFile && (
+                  <div className={styles.filePreview}>
+                    已选择：{newVideo.videoFile.name}
+                  </div>
+                )}
               </div>
               <div className="form-group">
                 <label>封面图片：</label>
