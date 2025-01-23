@@ -132,7 +132,7 @@ export default function WebsiteManager() {
               className="delete-button"
               onClick={() => handleDelete(site.id)}
             >
-              删除
+               -
             </button>
           </div>
         ))}
@@ -172,7 +172,7 @@ export default function WebsiteManager() {
               className="delete-button"
               onClick={() => handleDeleteBlog(blog.id)}
             >
-              删除
+               -
             </button>
           </div>
         ))}
