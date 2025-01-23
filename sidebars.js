@@ -14,6 +14,24 @@
 
  @type {import('@docusaurus/plugin-content-docs').SidebarsConfig}
  */
+
+function getCustomWorks() {
+  try {
+    if (typeof window !== 'undefined') {
+      const worksStr = localStorage.getItem('custom-works');
+      const works = JSON.parse(worksStr) || [];
+      return works.map(work => ({
+        type: 'doc',
+        id: work.path,
+        label: work.title,
+      }));
+    }
+    return [];
+  } catch (e) {
+    return [];
+  }
+}
+
 const sidebars = {
   // By default, Docusaurus generates a sidebar from the docs folder structure
   tutorialSidebar: [
@@ -28,6 +46,7 @@ const sidebars = {
       items: [
         'works/ai-writing',
         'works/ai-drawing',
+        ...getCustomWorks(),
       ],
     },
     {
