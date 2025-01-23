@@ -13,35 +13,67 @@ export const ResumeModal = ({ isOpen, onClose }) => {
       <div className="modal-content" onClick={e => e.stopPropagation()}>
         <button className="modal-close" onClick={onClose}>×</button>
         <div className="resume-content">
-          <h1>个人简历</h1>
+          <h1>叶静妍</h1>
           
+          <div className="resume-basic-info">
+            <p><strong>Age：</strong>20岁（大三在读）&nbsp;&nbsp;&nbsp;&nbsp;
+            <strong>Base：</strong>福建省福州市&nbsp;&nbsp;&nbsp;&nbsp;
+            <strong>Tel：</strong>15859693180&nbsp;&nbsp;&nbsp;&nbsp;
+            <strong>Email：</strong>yjyyjyyjy2333@163.com</p>
+          </div>
+
           <h2>教育背景</h2>
-          <p><strong>福州大学</strong> - 计算机科学与技术 | 2021-2025</p>
-          
-          <h2>专业技能</h2>
+          <p><strong>2022.9-至今</strong>&nbsp;&nbsp;&nbsp;&nbsp;福州大学（211）&nbsp;&nbsp;&nbsp;&nbsp;计算机科学与技术</p>
+
+          <h2>校园经历</h2>
+          <h3>班级 | 文体委员</h3>
+          <p><strong>2022.10—至今</strong></p>
           <ul>
-            <li><strong>编程语言：</strong>Java, Python, JavaScript</li>
-            <li><strong>前端开发：</strong>React, HTML5, CSS3</li>
-            <li><strong>其他技能：</strong>Git, Linux</li>
+            <li>组织班级团建活动、志愿活动<strong>10＋</strong>次</li>
+            <li>对接学校、学院大小活动</li>
           </ul>
-          
+
+          <h3>学校广播台专题采访部 | 部员</h3>
+          <p><strong>2022.10—2024.4</strong></p>
+          <ul>
+            <li><strong>采访发起：</strong>及时把握各类时事热点，平均每月撰写契合热点的采访文案10篇以上；快速锁定目标采访对象并积极发起采访，每周可锁定并筛选出15 - 20位目标采访对象</li>
+            <li><strong>采访上线：</strong>使用Au对采访音视频进行专业、高效的剪辑处理。剪辑音频上传在<strong>喜马拉雅App《福大新鲜事》</strong>栏目，累计完播量达<strong>2w</strong></li>
+          </ul>
+
           <h2>项目经历</h2>
-          <h3>项目名称一</h3>
+          <h3>健康饮食管理系统（智膳优选）| 组员</h3>
+          <p><strong>2024.10-2024.11</strong></p>
+          <p><strong>项目描述：</strong>智膳优选是一个综合性智能饮食管理平台，提供食材热量查询、饮食记录、个性化饮食计划、运动指导和社区交流等功能，旨在帮助用户实现健康饮食和生活方式。</p>
+          <p><strong>个人贡献：</strong></p>
           <ul>
-            <li>项目描述...</li>
-            <li>技术栈...</li>
+            <li><strong>需求调研和规划：</strong>深度调研了<strong>500余名</strong>用户，覆盖不同年龄、性别、职业群体，精准定位用户核心需求。据此规划产品功能架构，使产品功能契合度提升至90%以上，确保产品贴合市场与用户实际。</li>
+            <li><strong>竞品分析：</strong>分析了市场上排名前10的竞品，从功能、用户体验、市场占有率等<strong>20余</strong>个维度进行对比，梳理出竞品优势50余项、不足30余处。并将其图表化，整理出相关图表<strong>20余</strong>张。</li>
+            <li><strong>报表制作：</strong>制作了<strong>30余份</strong>项目进度报表、10余份数据分析报表，报表中详细呈现了项目各阶段完成度、数据库变化等信息。为团队决策提供了有力依据，助力项目按计划推进。</li>
           </ul>
-          
-          <h3>项目名称二</h3>
+
+          <h3>个人小红书账号内容运营 | 账号名：一只小蚂蚁</h3>
+          <p><strong>2024.7-至今</strong></p>
+          <p><strong>项目描述：</strong>分享小众、独特、符合年轻人文字审美的旅游文案。文案形式为半摘录半原创。</p>
+          <p><strong>个人贡献：</strong>搜索并分析相似账号的内容及内容展示形式，总结提炼爆款笔记的文案套路，并融合自己的创新点（小众、不烂大街、有文学性）来迎合目标人群（年轻人），产出笔记<strong>8篇5000+字。</strong></p>
+          <p><strong>项目成果：</strong>半年累计观看达<strong>20w</strong>，点赞收藏量达<strong>3900+</strong>。小红书数据中心真实数据：互动、观看、涨粉、主页访问超过99%同类，发文活跃度超过95%同类。</p>
+
+          <h2>个人技能</h2>
           <ul>
-            <li>项目描述...</li>
-            <li>技术栈...</li>
+            <li>CET-6证书（口试等级：良好）</li>
+            <li>熟练使用chatGPT、cursor、Kimi等AI</li>
+            <li>原型图绘画：墨刀、Axure</li>
+            <li>计算机语言：C、C++、Java</li>
+            <li>数据分析工具：Excel、SPSS</li>
+            <li>数据库：MySQL，会使用Navicat、DBeaver等数据库管理工具</li>
           </ul>
-          
-          <h2>获奖经历</h2>
+
+          <h2>自我评价</h2>
           <ul>
-            <li><strong>2023年</strong> - 奖项名称</li>
-            <li><strong>2022年</strong> - 奖项名称</li>
+            <li>对AI技术热情，目前正在用cursor开发个人网站</li>
+            <li>对热点敏感，高强度网络冲浪，熟悉新媒体平台规则和玩法，了解前沿互联网资讯</li>
+            <li>熟悉软件开发流程，具备扎实的计算机基础知识</li>
+            <li>具有强烈的责任心和和良好的团队合作意识</li>
+            <li>沟通能力强，具备熟练的英文读、写能力</li>
           </ul>
         </div>
       </div>
