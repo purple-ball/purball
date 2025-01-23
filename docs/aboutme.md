@@ -4,6 +4,7 @@ sidebar_position: 1
 
 import React, { useState } from 'react';
 import styles from '@site/src/css/custom.css';
+import { Link } from 'react-router-dom';
 
 export const ResumeModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
@@ -114,6 +115,30 @@ export const AboutMePage = () => {
           </svg>
           下载简历
         </a>
+      </div>
+
+      <h2>我的作品集 🎨</h2>
+      <div className="works-buttons">
+        <Link
+          to="/docs/works/ai-writing"
+          className="work-button"
+        >
+          AI生文
+        </Link>
+        <Link
+          to="/docs/works/ai-drawing"
+          className="work-button"
+        >
+          AI生图
+        </Link>
+        <button 
+          className="work-button add-button"
+          onClick={() => {
+            // 创建新作品集的逻辑
+          }}
+        >
+          +
+        </button>
       </div>
 
       <h2>我的日常 🎯</h2>
