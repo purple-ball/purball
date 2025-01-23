@@ -154,7 +154,7 @@ export default function WebsiteManager() {
         添加网站
       </button>
 
-      <h3>推荐的博客</h3>
+      <h3 className="section-title">推荐的博客</h3>
       
       <div className="website-list">
         {blogs.map(blog => (

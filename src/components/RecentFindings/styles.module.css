@@ -1,0 +1,101 @@
+.findingsContainer {
+  margin: 3rem 0;
+}
+
+.findingsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.findingsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.findingCard {
+  background: var(--ifm-background-surface-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.findingCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.findingCard h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+  color: var(--ifm-color-primary);
+}
+
+.findingCard time {
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.findingHeader {
+  margin-bottom: 2rem;
+}
+
+.findingHeader time {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-600);
+  margin-top: 0.5rem;
+}
+
+.findingContent {
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  white-space: pre-wrap;
+}
+
+.findingActions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.findingActions button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.findingActions button:first-child {
+  background: var(--ifm-color-primary);
+  color: white;
+}
+
+.findingActions button:last-child {
+  background: #ff4d4f;
+  color: white;
+}
+
+.addButton {
+  padding: 0.5rem 1rem;
+  background: var(--ifm-color-primary);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.addButton:hover {
+  background: var(--ifm-color-primary-darker);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+} 

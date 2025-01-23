@@ -9,7 +9,13 @@ import BrowserOnly from '@docusaurus/BrowserOnly';
 <BrowserOnly>
 {() => {
   const WebsiteManager = require('@site/src/components/WebsiteManager').default;
-  return <WebsiteManager />;
+  const RecentFindings = require('@site/src/components/RecentFindings').default;
+  return (
+    <>
+      <WebsiteManager />
+      <RecentFindings />
+    </>
+  );
 }}
 </BrowserOnly>
 
