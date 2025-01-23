@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-import WorksLayout from '@site/src/components/WorksLayout';
+import WorksLayout from '../../src/components/WorksLayout';
 
 # AI生图
 

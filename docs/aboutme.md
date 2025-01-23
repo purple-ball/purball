@@ -127,13 +127,13 @@ export const AboutMePage = () => {
       <h2>我的作品集 🎨</h2>
       <div className="works-buttons">
         <Link
-          to="/docs/works/ai-writing/"
+          to="../works/ai-writing"
           className="work-button"
         >
           AI生文
         </Link>
         <Link
-          to="/docs/works/ai-drawing/"
+          to="../works/ai-drawing"
           className="work-button"
         >
           AI生图

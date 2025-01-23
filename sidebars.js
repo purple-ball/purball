@@ -18,56 +18,25 @@ const sidebars = {
   // By default, Docusaurus generates a sidebar from the docs folder structure
   tutorialSidebar: [
     {
-      type: 'category',
+      type: 'doc',
+      id: 'aboutme',
       label: 'About Me',
+    },
+    {
+      type: 'category',
+      label: '作品集',
       items: [
         {
           type: 'doc',
-          id: 'aboutme',
-          label: 'About Me',
+          id: 'works/ai-writing',
+          label: 'AI生文',
         },
         {
-          type: 'category',
-          label: '作品集',
-          items: [
-            {
-              type: 'doc',
-              id: 'works/ai-writing',
-              label: 'AI生文',
-            },
-            {
-              type: 'doc',
-              id: 'works/ai-drawing',
-              label: 'AI生图',
-            },
-          ],
+          type: 'doc',
+          id: 'works/ai-drawing',
+          label: 'AI生图',
         },
       ],
-    },
-    {
-      type: 'category',
-      label: '爱好',
-      items: [
-        'hobby/surfing',
-        'hobby/guitar',
-        'hobby/milk-tea',
-        'hobby/food',
-      ],
-    },
-    {
-      type: 'doc',
-      id: 'reading',
-      label: '读书笔记',
-    },
-    {
-      type: 'doc',
-      id: 'movies',
-      label: '影视笔记',
-    },
-    {
-      type: 'doc',
-      id: 'dogs',
-      label: '小狗草坪',
     },
   ],
 
