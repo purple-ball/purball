@@ -161,6 +161,15 @@ export default function GuitarVideos() {
           setSelectedVideo(null);
         }}>
           <div className="modal-content" onClick={e => e.stopPropagation()}>
+            <button 
+              className="modal-close" 
+              onClick={() => {
+                setShowVideoModal(false);
+                setSelectedVideo(null);
+              }}
+            >
+              ×
+            </button>
             <div className={styles.videoPlayer}>
               <video
                 controls
@@ -188,6 +197,12 @@ export default function GuitarVideos() {
       {showAddForm && (
         <div className="modal-overlay" onClick={() => setShowAddForm(false)}>
           <div className="modal-content" onClick={e => e.stopPropagation()}>
+            <button 
+              className="modal-close" 
+              onClick={() => setShowAddForm(false)}
+            >
+              ×
+            </button>
             <h3>添加新视频</h3>
             <form onSubmit={handleAdd}>
               <div className="form-group">
