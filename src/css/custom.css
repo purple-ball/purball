@@ -82,7 +82,7 @@
 }
 
 .modal-content {
-  background: #FFF8DC; /* 鹅黄色背景 */
+  background: #FFF8E1; /* 鹅黄色背景 */
   padding: 3rem;
   border-radius: 12px;
   width: 90vw; /* 增加宽度 */
@@ -94,6 +94,13 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
+.modal-content iframe {
+  width: 100%;
+  height: calc(90vh - 6rem);
+  border: none;
+  background: transparent;
+}
+
 .modal-close {
   position: absolute;
   top: 1.5rem;
@@ -103,41 +110,70 @@
   font-size: 2rem;
   cursor: pointer;
   color: var(--ifm-color-primary);
+  transition: color 0.2s;
   width: 40px;
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  transition: background-color 0.2s;
 }
 
 .modal-close:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+  color: var(--ifm-color-primary-darker);
+  background: rgba(0, 0, 0, 0.05);
 }
 
 /* 简历内容样式 */
 .resume-content {
-  font-size: 1.1rem;
+  font-family: 'Noto Serif SC', serif;
   line-height: 1.8;
-  color: var(--ifm-font-color-base);
+  color: #2c3e50;
 }
 
-.resume-content h1,
-.resume-content h2,
-.resume-content h3 {
+.resume-content h1 {
+  font-size: 2.2rem;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.resume-content h2 {
+  font-size: 1.8rem;
   color: var(--ifm-color-primary-darker);
+  border-bottom: 2px solid var(--ifm-color-primary-lighter);
+  padding-bottom: 0.5rem;
   margin-top: 2rem;
   margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.resume-content h3 {
+  font-size: 1.4rem;
+  color: #34495e;
+  margin-top: 1.5rem;
+  font-weight: 500;
+}
+
+.resume-content strong {
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.resume-content p {
+  margin: 1rem 0;
+  font-size: 1.1rem;
 }
 
 .resume-content ul {
   padding-left: 1.5rem;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
 }
 
 .resume-content li {
-  margin-bottom: 0.5rem;
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
 }
 
 .resume-links {

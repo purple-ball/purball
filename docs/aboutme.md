@@ -12,14 +12,38 @@ export const ResumeModal = ({ isOpen, onClose }) => {
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={e => e.stopPropagation()}>
         <button className="modal-close" onClick={onClose}>×</button>
-        <iframe 
-          src="/resume.md"
-          style={{
-            width: '100%',
-            height: '70vh',
-            border: 'none',
-          }}
-        />
+        <div className="resume-content">
+          <h1>个人简历</h1>
+          
+          <h2>教育背景</h2>
+          <p><strong>福州大学</strong> - 计算机科学与技术 | 2021-2025</p>
+          
+          <h2>专业技能</h2>
+          <ul>
+            <li><strong>编程语言：</strong>Java, Python, JavaScript</li>
+            <li><strong>前端开发：</strong>React, HTML5, CSS3</li>
+            <li><strong>其他技能：</strong>Git, Linux</li>
+          </ul>
+          
+          <h2>项目经历</h2>
+          <h3>项目名称一</h3>
+          <ul>
+            <li>项目描述...</li>
+            <li>技术栈...</li>
+          </ul>
+          
+          <h3>项目名称二</h3>
+          <ul>
+            <li>项目描述...</li>
+            <li>技术栈...</li>
+          </ul>
+          
+          <h2>获奖经历</h2>
+          <ul>
+            <li><strong>2023年</strong> - 奖项名称</li>
+            <li><strong>2022年</strong> - 奖项名称</li>
+          </ul>
+        </div>
       </div>
     </div>
   );
