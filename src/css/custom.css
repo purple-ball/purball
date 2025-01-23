@@ -82,24 +82,62 @@
 }
 
 .modal-content {
-  background: var(--ifm-background-color);
-  padding: 2rem;
-  border-radius: 8px;
-  max-width: 800px;
-  max-height: 80vh;
+  background: #FFF8DC; /* 鹅黄色背景 */
+  padding: 3rem;
+  border-radius: 12px;
+  width: 90vw; /* 增加宽度 */
+  max-width: 1200px; /* 增加最大宽度 */
+  height: 90vh; /* 增加高度 */
+  max-height: 90vh;
   overflow-y: auto;
   position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 .modal-close {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 1.5rem;
+  right: 1.5rem;
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: 2rem;
   cursor: pointer;
   color: var(--ifm-color-primary);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.modal-close:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* 简历内容样式 */
+.resume-content {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--ifm-font-color-base);
+}
+
+.resume-content h1,
+.resume-content h2,
+.resume-content h3 {
+  color: var(--ifm-color-primary-darker);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.resume-content ul {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.resume-content li {
+  margin-bottom: 0.5rem;
 }
 
 .resume-links {

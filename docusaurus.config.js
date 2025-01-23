@@ -141,6 +141,13 @@ const config = {
         darkTheme: prismThemes.dracula,
       },
     }),
+
+  scripts: [
+    {
+      src: 'https://cdnjs.cloudflare.com/ajax/libs/markdown-it/13.0.1/markdown-it.min.js',
+      async: true,
+    },
+  ],
 };
 
 export default config;
