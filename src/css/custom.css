@@ -67,61 +67,64 @@
   padding: 4rem 0;
 }
 
-/* AboutMe 页面样式美化 */
-.about-me-page {
-  max-width: 800px;
-  margin: 0 auto;
+/* 弹窗样式 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: var(--ifm-background-color);
   padding: 2rem;
+  border-radius: 8px;
+  max-width: 800px;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
 }
 
-.about-me-page h1 {
-  font-size: 2.5rem;
-  background: linear-gradient(120deg, var(--ifm-color-primary), #b19ee5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 2rem;
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--ifm-color-primary);
 }
 
-.about-me-page h2 {
-  font-size: 1.8rem;
-  color: var(--ifm-color-primary-darker);
-  margin-top: 2.5rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--ifm-color-primary-lightest);
+.resume-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
-.about-me-page p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: var(--ifm-font-color-base);
+.resume-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: var(--ifm-color-primary);
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.2s;
 }
 
-.about-me-page ul {
-  padding-left: 1.5rem;
+.resume-link:hover {
+  background: var(--ifm-color-primary-darker);
+  color: white;
+  text-decoration: none;
 }
 
-.about-me-page li {
-  font-size: 1.1rem;
-  line-height: 2;
-  margin: 0.5rem 0;
-}
-
-.about-me-page blockquote {
-  background: linear-gradient(to right, var(--custom-yellow), var(--custom-light-yellow));
-  border-left: 4px solid var(--ifm-color-primary);
-  padding: 1rem 1.5rem;
-  margin: 1.5rem 0;
-  border-radius: 0 8px 8px 0;
-}
-
-.about-me-page blockquote p {
-  margin: 0;
-  font-style: italic;
-  font-size: 1.2rem;
-  color: var(--ifm-font-color-base);
-}
-
-.about-me-page img {
-  vertical-align: middle;
-  margin: 0 0.5rem;
+.resume-link svg {
+  margin-right: 0.5rem;
 }
