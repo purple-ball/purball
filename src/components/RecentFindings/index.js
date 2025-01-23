@@ -90,7 +90,7 @@ export default function RecentFindings() {
   return (
     <div className={styles.findingsContainer}>
       <div className={styles.findingsHeader}>
-        <h2>最近发现</h2>
+       
         <button
           className={styles.addButton}
           onClick={() => setShowAddForm(true)}

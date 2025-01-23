@@ -13,6 +13,7 @@ import BrowserOnly from '@docusaurus/BrowserOnly';
 }}
 </BrowserOnly>
 
+## 最近发现
 <BrowserOnly>
 {() => {
   const RecentFindings = require('@site/src/components/RecentFindings').default;
