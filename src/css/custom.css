@@ -238,3 +238,131 @@
   padding: 0;
   font-size: 1.5rem;
 }
+
+/* 网站管理器样式 */
+.website-manager {
+  margin: 2rem 0;
+}
+
+.website-list {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.website-card {
+  background: var(--ifm-background-color);
+  border: 1px solid var(--ifm-color-primary-lighter);
+  border-radius: 8px;
+  padding: 1rem;
+  position: relative;
+}
+
+.website-card h3 {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.website-card a {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.website-card a:hover {
+  color: var(--ifm-color-primary-darker);
+}
+
+.delete-button {
+  background: none;
+  border: none;
+  color: #ff4d4f;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 50%;
+}
+
+.delete-button:hover {
+  background: rgba(255, 77, 79, 0.1);
+}
+
+.add-website-button {
+  background: var(--ifm-color-primary);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-website-button:hover {
+  background: var(--ifm-color-primary-darker);
+}
+
+.add-form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.add-form {
+  background: var(--ifm-background-color);
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+}
+
+.add-form h3 {
+  margin-top: 0;
+}
+
+.add-form form > div {
+  margin-bottom: 1rem;
+}
+
+.add-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.add-form input,
+.add-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--ifm-color-primary-lighter);
+  border-radius: 4px;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.form-buttons button {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form-buttons button[type="submit"] {
+  background: var(--ifm-color-primary);
+  color: white;
+  border: none;
+}
+
+.form-buttons button[type="button"] {
+  background: none;
+  border: 1px solid var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
