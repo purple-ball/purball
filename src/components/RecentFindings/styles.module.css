@@ -77,12 +77,12 @@
 }
 
 .findingActions button:last-child {
-  background: #E6A23C;
+  background: #D4B106;
   color: white;
 }
 
 .findingActions button:last-child:hover {
-  background: #F0B65F;
+  background: #F3CC0C;
 }
 
 .addButton {

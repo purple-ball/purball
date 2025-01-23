@@ -210,7 +210,7 @@ export default function RecentFindings() {
                 <div className={styles.findingActions}>
                   <button onClick={() => setIsEditing(true)}>编辑</button>
                   <button onClick={() => handleDelete(selectedFinding.id)}>
-                    -
+                    ★
                   </button>
                 </div>
               </>
