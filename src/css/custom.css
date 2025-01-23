@@ -180,6 +180,7 @@
   display: flex;
   gap: 1rem;
   margin-top: 1rem;
+  margin-bottom: 2.5rem; /* 增加下方间距 */
 }
 
 .resume-link {

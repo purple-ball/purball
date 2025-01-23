@@ -90,7 +90,7 @@ export const AboutMePage = () => {
       欢迎来到我的个人空间！这里是我记录生活、分享想法的地方。
       
       <h2>关于我 🌟</h2>
-      e\infp 射手座![alt text](08B4CCB1.png) 福州大学计科大三在读
+      e\infp 射手座 福州大学计科大三在读
       
       <div className="resume-links">
         <button 
@@ -127,8 +127,8 @@ export const AboutMePage = () => {
 
       <h2>联系我 📫</h2>
       <ul>
-        <li>💌 Email: [your.email@example.com]</li>
-        <li>💻 GitHub: [your-github-username]</li>
+        <li>💌 Email: yjyyjyyjy2333@163.com</li>
+        <li>💻 GitHub: purple-ball</li>
       </ul>
 
       <h2>✨</h2>
