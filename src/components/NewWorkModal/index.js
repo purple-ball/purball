@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import clsx from 'clsx';
 import styles from './styles.module.css';
 
 export default function NewWorkModal({ isOpen, onClose, onAdd }) {

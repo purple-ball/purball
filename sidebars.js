@@ -21,13 +21,25 @@ const sidebars = {
       type: 'category',
       label: 'About Me',
       items: [
-        'aboutme',
+        {
+          type: 'doc',
+          id: 'aboutme',
+          label: 'About Me',
+        },
         {
           type: 'category',
           label: '作品集',
           items: [
-            'works/ai-writing',
-            'works/ai-drawing',
+            {
+              type: 'doc',
+              id: 'works/ai-writing',
+              label: 'AI生文',
+            },
+            {
+              type: 'doc',
+              id: 'works/ai-drawing',
+              label: 'AI生图',
+            },
           ],
         },
       ],
