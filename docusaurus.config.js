@@ -72,15 +72,6 @@ const config = {
     ],
   ],
 
-  plugins: [
-    [
-      './plugins/dynamic-works',
-      {
-        // 插件配置选项（如果需要）
-      },
-    ],
-  ],
-
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({

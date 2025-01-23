@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styles from '@site/src/css/custom.css';
 import Link from '@docusaurus/Link';
 import NewWorkModal from '@site/src/components/NewWorkModal';
@@ -85,31 +85,6 @@ export const ResumeModal = ({ isOpen, onClose }) => {
 
 export const AboutMePage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isNewWorkModalOpen, setIsNewWorkModalOpen] = useState(false);
-  const [works, setWorks] = useState(() => {
-    const savedWorks = localStorage.getItem('custom-works');
-    return savedWorks ? JSON.parse(savedWorks) : [];
-  });
-  
-  useEffect(() => {
-    localStorage.setItem('custom-works', JSON.stringify(works));
-  }, [works]);
-
-  const handleAddNewWork = (title) => {
-    const newWork = {
-      id: Date.now(),
-      title: title,
-      path: `works/${title.toLowerCase().replace(/\s+/g, '-')}`,
-    };
-    setWorks([...works, newWork]);
-    
-    // 不再需要手动创建文件，插件会处理
-    // createNewWorkDoc(newWork.path, title);
-  };
-
-  const handleDeleteWork = (workId) => {
-    setWorks(works.filter(work => work.id !== workId));
-  };
   
   return (
     <div className="about-me-page">
@@ -145,34 +120,18 @@ export const AboutMePage = () => {
 
       <h2>我的作品集 🎨</h2>
       <div className="works-buttons">
-        <Link to="/docs/works/ai-writing" className="work-button">
+        <Link
+          to="/docs/works/ai-writing"
+          className="work-button"
+        >
           AI生文
         </Link>
-        <Link to="/docs/works/ai-drawing" className="work-button">
+        <Link
+          to="/docs/works/ai-drawing"
+          className="work-button"
+        >
           AI生图
         </Link>
-        {works.map(work => (
-          <div key={work.id} className="work-button-container">
-            <Link
-              to={`/docs/${work.path}`}
-              className="work-button"
-            >
-              {work.title}
-            </Link>
-            <button
-              className="delete-work-button"
-              onClick={() => handleDeleteWork(work.id)}
-            >
-              ×
-            </button>
-          </div>
-        ))}
-        <button 
-          className="work-button add-button"
-          onClick={() => setIsNewWorkModalOpen(true)}
-        >
-          +
-        </button>
       </div>
 
       <h2>我的爱好 🎯</h2>
@@ -197,11 +156,6 @@ export const AboutMePage = () => {
       <ResumeModal 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
-      />
-      <NewWorkModal
-        isOpen={isNewWorkModalOpen}
-        onClose={() => setIsNewWorkModalOpen(false)}
-        onAdd={handleAddNewWork}
       />
     </div>
   );
