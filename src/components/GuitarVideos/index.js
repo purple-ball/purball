@@ -162,12 +162,12 @@ export default function GuitarVideos() {
         }}>
           <div className="modal-content" onClick={e => e.stopPropagation()}>
             <button 
-              className="modal-close" 
-              onClick={(e) => {
-                e.stopPropagation();
+              className={styles.modalClose}
+              onClick={() => {
                 setShowVideoModal(false);
                 setSelectedVideo(null);
               }}
+              type="button"
             >
               ×
             </button>
@@ -199,11 +199,9 @@ export default function GuitarVideos() {
         <div className="modal-overlay" onClick={() => setShowAddForm(false)}>
           <div className="modal-content" onClick={e => e.stopPropagation()}>
             <button 
-              className="modal-close" 
-              onClick={(e) => {
-                e.stopPropagation();
-                setShowAddForm(false);
-              }}
+              className={styles.modalClose}
+              onClick={() => setShowAddForm(false)}
+              type="button"
             >
               ×
             </button>
