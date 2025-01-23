@@ -24,7 +24,7 @@ export default function GuitarVideos() {
     title: '',
     description: '',
     videoFile: null,
-    coverImage: '',
+    coverFile: null,
     difficulty: '入门',
     tags: []
   });
@@ -32,10 +32,13 @@ export default function GuitarVideos() {
   useEffect(() => {
     const saved = localStorage.getItem('guitar-videos');
     const savedVideos = saved ? JSON.parse(saved) : DEFAULT_VIDEOS;
-    // 转换已保存的视频URL为Blob URL
+    // 转换已保存的视频和图片URL为Blob URL
     savedVideos.forEach(video => {
       if (video.videoBlob) {
         video.videoUrl = URL.createObjectURL(new Blob([video.videoBlob]));
+      }
+      if (video.coverBlob) {
+        video.coverImage = URL.createObjectURL(new Blob([video.coverBlob]));
       }
     });
     setVideos(savedVideos);
@@ -50,36 +53,62 @@ export default function GuitarVideos() {
   const handleAdd = (e) => {
     e.preventDefault();
     if (newVideo.title && newVideo.videoFile) {
-      const reader = new FileReader();
-      reader.onload = () => {
+      const videoReader = new FileReader();
+      const coverReader = new FileReader();
+      
+      videoReader.onload = () => {
         const videoBlob = new Blob([reader.result], { type: newVideo.videoFile.type });
         const videoUrl = URL.createObjectURL(videoBlob);
-        setVideos([
-          {
-            ...newVideo,
-            id: Date.now(),
-            videoUrl,
-            videoBlob: reader.result,
-            recordDate: new Date().toISOString().split('T')[0]
-          },
-          ...videos
-        ]);
-        setNewVideo({
-          title: '',
-          description: '',
-          videoFile: null,
-          coverImage: '',
-          difficulty: '入门',
-          tags: []
-        });
-        setShowAddForm(false);
+        
+        // 如果有封面图片，读取封面图片
+        if (newVideo.coverFile) {
+          coverReader.onload = () => {
+            const coverBlob = new Blob([coverReader.result], { type: newVideo.coverFile.type });
+            const coverImage = URL.createObjectURL(coverBlob);
+            
+            addNewVideo(videoUrl, videoReader.result, coverImage, coverReader.result);
+          };
+          coverReader.readAsArrayBuffer(newVideo.coverFile);
+        } else {
+          // 没有封面图片时直接添加视频
+          addNewVideo(videoUrl, videoReader.result);
+        }
       };
-      reader.readAsArrayBuffer(newVideo.videoFile);
+      videoReader.readAsArrayBuffer(newVideo.videoFile);
     }
   };
 
+  const addNewVideo = (videoUrl, videoBlob, coverImage = '', coverBlob = null) => {
+    const newVideoData = {
+      ...newVideo,
+      id: Date.now(),
+      videoUrl,
+      videoBlob,
+      coverImage,
+      coverBlob,
+      recordDate: new Date().toISOString().split('T')[0]
+    };
+    
+    setVideos(prevVideos => [newVideoData, ...prevVideos]);
+    localStorage.setItem('guitar-videos', JSON.stringify([newVideoData, ...videos]));
+    
+    setNewVideo({
+      title: '',
+      description: '',
+      videoFile: null,
+      coverFile: null,
+      difficulty: '入门',
+      tags: []
+    });
+    setShowAddForm(false);
+  };
+
   const handleDelete = (id) => {
-    setVideos(videos.filter(v => v.id !== id));
+    setVideos(prevVideos => {
+      const newVideos = prevVideos.filter(v => v.id !== id);
+      localStorage.setItem('guitar-videos', JSON.stringify(newVideos));
+      return newVideos;
+    });
     setSelectedVideo(null);
     setShowVideoModal(false);
   };
@@ -241,13 +270,17 @@ export default function GuitarVideos() {
                 )}
               </div>
               <div className="form-group">
-                <label>封面图片：</label>
+                <label>上传封面图片：</label>
                 <input
-                  type="url"
-                  value={newVideo.coverImage}
-                  onChange={e => setNewVideo({...newVideo, coverImage: e.target.value})}
-                  placeholder="封面图片URL"
+                  type="file"
+                  accept="image/*"
+                  onChange={e => setNewVideo({...newVideo, coverFile: e.target.files[0]})}
                 />
+                {newVideo.coverFile && (
+                  <div className={styles.filePreview}>
+                    已选择：{newVideo.coverFile.name}
+                  </div>
+                )}
               </div>
               <div className="form-group">
                 <label>难度：</label>
