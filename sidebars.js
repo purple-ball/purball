@@ -24,6 +24,14 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: '作品集',
+      items: [
+        'works/ai-writing',
+        'works/ai-drawing',
+      ],
+    },
+    {
+      type: 'category',
       label: '爱好',
       items: [
         'hobby/surfing',

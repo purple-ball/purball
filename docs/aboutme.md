@@ -4,6 +4,8 @@ sidebar_position: 1
 
 import React, { useState } from 'react';
 import styles from '@site/src/css/custom.css';
+import Link from '@docusaurus/Link';
+import NewWorkModal from '@site/src/components/NewWorkModal';
 
 export const ResumeModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
@@ -83,6 +85,12 @@ export const ResumeModal = ({ isOpen, onClose }) => {
 
 export const AboutMePage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isNewWorkModalOpen, setIsNewWorkModalOpen] = useState(false);
+  
+  const handleAddNewWork = (title) => {
+    // 处理新作品集的创建逻辑
+    console.log('Creating new work:', title);
+  };
   
   return (
     <div className="about-me-page">
@@ -116,13 +124,34 @@ export const AboutMePage = () => {
         </a>
       </div>
 
-      <h2>我的日常 🎯</h2>
+      <h2>我的作品集 🎨</h2>
+      <div className="works-buttons">
+        <Link
+          to="/docs/works/ai-writing"
+          className="work-button"
+        >
+          AI生文
+        </Link>
+        <Link
+          to="/docs/works/ai-drawing"
+          className="work-button"
+        >
+          AI生图
+        </Link>
+        <button 
+          className="work-button add-button"
+          onClick={() => setIsNewWorkModalOpen(true)}
+        >
+          +
+        </button>
+      </div>
+
+      <h2>我的爱好 🎯</h2>
       <ul>
-        <li>📚 阅读：探索不同的世界</li>
+        <li>🌐 网上冲浪：发现有趣的内容</li>
         <li>🎸 弹吉他：感受音乐的魅力</li>
         <li>🧋 喝奶茶：享受生活的小确幸</li>
         <li>🍜 美食：发现味蕾的惊喜</li>
-        <li>🌐 网上冲浪：发现有趣的内容</li>
       </ul>
 
       <h2>联系我 📫</h2>
@@ -139,6 +168,11 @@ export const AboutMePage = () => {
       <ResumeModal 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
+      />
+      <NewWorkModal
+        isOpen={isNewWorkModalOpen}
+        onClose={() => setIsNewWorkModalOpen(false)}
+        onAdd={handleAddNewWork}
       />
     </div>
   );
